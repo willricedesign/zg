@@ -1,0 +1,149 @@
+//---------------------------------------------------
+// Settings
+// --------------------------------------------------
+@import "settings/variables";
+@import "settings/functions";
+@import "settings/mixins";
+
+
+
+
+
+//---------------------------------------------------
+// Core
+// --------------------------------------------------
+@import "core/reset";
+@import "core/base";
+
+
+
+
+
+//---------------------------------------------------
+// Plugins
+// --------------------------------------------------
+@import "../../bower_components/susy/sass/_susy.scss";
+
+
+
+
+
+//---------------------------------------------------
+// Setup
+// --------------------------------------------------
+$susy: ( columns: 12, gutters: .25, container: 180rem, );
+
+
+
+
+
+//---------------------------------------------------
+// Fonts
+// --------------------------------------------------
+@font-face {
+    font-family: 'Adelle-Bold';
+    src: url('../fonts/AdelleSans-Bold.eot');
+    /* IE9 Compat Modes */
+    src: url('../fonts/AdelleSans-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/AdelleSans-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/AdelleSans-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+    url('../fonts/AdelleSans-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/AdelleSans-Bold.svg#svgAdelleSans-Bold') format('svg');
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Adelle-Regular';
+    src: url('../fonts/AdelleSans-Regular.eot');
+    /* IE9 Compat Modes */
+    src: url('../fonts/AdelleSans-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/AdelleSans-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/AdelleSans-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+    url('../fonts/AdelleSans-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/AdelleSans-Regular.svg#svgAdelleSans-Regular') format('svg');
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Adelle-Light';
+    src: url('../fonts/AdelleSans-Light.eot');
+    /* IE9 Compat Modes */
+    src: url('../fonts/AdelleSans-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/AdelleSans-Light.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/AdelleSans-Light.woff') format('woff'), /* Pretty Modern Browsers */
+    url('../fonts/AdelleSans-Light.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/AdelleSans-Light.svg#svgAdelleSans-Light') format('svg');
+    /* Legacy iOS */
+}
+
+
+
+
+//---------------------------------------------------
+// Style
+// --------------------------------------------------
+
+body {
+    font-family: 'Adelle-Regular', Helvetica, Arial, sans-serif;
+}
+
+.container {
+    @include container;
+    padding: 4rem;
+}
+
+nav {}
+
+h1 {}
+
+
+
+
+
+// Footer
+
+.footer {
+    background-color: $color-dark;
+    height: 46rem;
+    padding-top: 2rem;
+
+    &__arrow {
+        float: left;
+        width: 2.5rem;
+
+        &:hover {
+            margin-top: -.2rem;
+        }
+    }
+
+    &__contactlist {
+        @include span(4 of 12);
+        @include omega;
+    }
+
+    &__contactlist-item {
+        @include span(2 of 4);
+        margin-bottom: 4rem;
+        li {
+            margin-bottom: .4rem;
+        }
+        &:nth-child(even) {
+            @include omega;
+        }
+    }
+
+    &__contactlist-title {
+        color: grey;
+        font-family: 'Adelle-Bold', Helvetica, Arial, sans-serif;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        letter-spacing: .5rem;
+        margin-bottom: .8rem;
+    }
+
+    &__contactlist-link {
+        color: white;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+    }
+}

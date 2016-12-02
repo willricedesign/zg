@@ -1,0 +1,13 @@
+extends ../extends/layout.pug
+include ../mixins/sample
+
+block variables
+  - var title = "Zero-G | Brand Strategy and Design";
+  - var description = "Zero-G is a brand strategy and design agency based in Dublin, Ireland";
+
+block content
+  h1 Web Starter Kit
+  +sample("I'm a sample mixin with class modifier!")(class="c-sample--modifier")
+  h2 Test
+
+
