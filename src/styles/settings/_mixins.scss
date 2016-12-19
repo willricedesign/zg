@@ -1,6 +1,13 @@
 //Font Scale Mixins
+@mixin fontsize-scaps {
+  font-family: 'Adelle-Bold', Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .3rem;
+}
+
 @mixin fontsize-s {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   line-height: 2.5rem;
 }
 
@@ -16,15 +23,13 @@
 
 
 
-
-
-// Maintain ratio mixin. Great for responsive grids, or videos.
+// =============================================================================
+// Aspect Ratio Mixin
+// =============================================================================
 // https://gist.github.com/brianmcallister/2932463
 // 
 // $ratio - Ratio the element needs to maintain.
-// 
-// Examples
-// 
+//
 //   // A 16:9 ratio would look like this:
 //   .element {
 //     @include maintain-ratio(16 9);

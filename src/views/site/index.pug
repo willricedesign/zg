@@ -6,9 +6,9 @@ block variables
   - var description = "Zero-G is a brand strategy and design agency based in Dublin, Ireland";
 
 block content
-  div.featured-project
-    div.container
-      div.featured-project__details
+  .featured-project
+    .container
+      .featured-project__details
         h2.featured-project__client Abbey Theatre
         h3.featured-project__title Rebranding Ireland's National Theatre
 
@@ -16,15 +16,23 @@ block content
     p.home-intro Zero-G is a brand strategy and design agency based in Dublin, Ireland. We partner with organisations and enterprises from around the world to help them change, connect, innovate and grow. 
 
   section.container.project-grid
-    div.project-grid__project
-      h2.project-grid__project-title Example Title
-    div.project-grid__project
-    div.project-grid__project
-    div.project-grid__project
-    div.project-grid__project
-    div.project-grid__project
-    div.project-grid__project
-    div.project-grid__project    
+    .project-preview
+      a.project-link(href='#')
+        .project-preview__details
+          h2.project-preview__client Think Healthcare
+          h3.project-preview__title Transforming healthcare in America
+          ul.project-preview__taglist
+            li.project-preview__tag Strategy,
+            li.project-preview__tag Brand Design,
+            li.project-preview__tag User Experience
+
+    .project-preview
+    .project-preview
+    .project-preview
+    .project-preview
+    .project-preview
+    .project-preview
+    .project-preview    
 
 
   +sample("I'm a sample mixin with class modifier!")(class="c-sample--modifier")
