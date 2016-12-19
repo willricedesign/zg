@@ -40,41 +40,10 @@ $susy: ( columns: 12, gutters: .25, container: 180rem, );
 //---------------------------------------------------
 // ##Fonts
 // --------------------------------------------------
-@font-face {
-  font-family: 'Adelle-Bold';
-  src: url('../fonts/AdelleSans-Bold.eot');
-  /* IE9 Compat Modes */
-  src: url('../fonts/AdelleSans-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../fonts/AdelleSans-Bold.woff2') format('woff2'), /* Super Modern Browsers */
-  url('../fonts/AdelleSans-Bold.woff') format('woff'), /* Pretty Modern Browsers */
-  url('../fonts/AdelleSans-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
-  url('../fonts/AdelleSans-Bold.svg#svgAdelleSans-Bold') format('svg');
-  /* Legacy iOS */
-}
 
-@font-face {
-  font-family: 'Adelle-Regular';
-  src: url('../fonts/AdelleSans-Regular.eot');
-  /* IE9 Compat Modes */
-  src: url('../fonts/AdelleSans-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../fonts/AdelleSans-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-  url('../fonts/AdelleSans-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-  url('../fonts/AdelleSans-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
-  url('../fonts/AdelleSans-Regular.svg#svgAdelleSans-Regular') format('svg');
-  /* Legacy iOS */
-}
-
-@font-face {
-  font-family: 'Adelle-Light';
-  src: url('../fonts/AdelleSans-Light.eot');
-  /* IE9 Compat Modes */
-  src: url('../fonts/AdelleSans-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../fonts/AdelleSans-Light.woff2') format('woff2'), /* Super Modern Browsers */
-  url('../fonts/AdelleSans-Light.woff') format('woff'), /* Pretty Modern Browsers */
-  url('../fonts/AdelleSans-Light.ttf') format('truetype'), /* Safari, Android, iOS */
-  url('../fonts/AdelleSans-Light.svg#svgAdelleSans-Light') format('svg');
-  /* Legacy iOS */
-}
+@include font-face(Adelle-Bold, '../fonts/AdelleSans-Bold');
+@include font-face(Adelle-Regular, '../fonts/AdelleSans-Regular');
+@include font-face(Adelle-Light, '../fonts/AdelleSans-Light');
 
 
 
@@ -83,7 +52,7 @@ $susy: ( columns: 12, gutters: .25, container: 180rem, );
 // ##Style
 // --------------------------------------------------
 
-//##General
+// ##General
 
 body {
   font-family: 'Adelle-Regular', Helvetica, Arial, sans-serif;
@@ -91,7 +60,7 @@ body {
 
 .container {
   @include container;
-  padding: 0 4rem;
+  padding: 0 6rem;
 }
 
 
@@ -101,24 +70,32 @@ body {
 // ##Header
 
 .primarynav {
-  padding-top: 3rem;
+  padding-top: 4rem;
+  position: absolute;
+  width: 100%;
+  color: white;
+  z-index: 100;
   
   &__title {
-    @include fontsize-small;
+    @include fontsize-s;
     float: left;
   }
 
   &__linklist {
-    @include fontsize-small;
+    @include fontsize-s;
     float: right;
     list-style-type: none;
     padding: 0;
   }
 
-  &__link {
+  &__linklist-item {
     display: inline-block;
-    margin-left: 2rem;
+    margin-left: 2.4rem;
     padding: 0;
+  }
+
+  &__link {
+    color: inherit;
   }
 }
 
@@ -145,7 +122,7 @@ body {
   &__contactlist {
     @include span(4 of 12);
     @include omega;
-    @include fontsize-small;
+    @include fontsize-s;
   }
 
   &__contactlist-item {
@@ -164,7 +141,7 @@ body {
     font-family: 'Adelle-Bold', Helvetica, Arial, sans-serif;
     font-size: 1.2rem;
     text-transform: uppercase;
-    letter-spacing: .5rem;
+    letter-spacing: .4rem;
     margin-bottom: 1rem;
   }
 
@@ -181,3 +158,111 @@ body {
     padding: 0 0 0 2rem;     
   }
 }
+
+
+
+
+
+// ##Index : Featured Projects
+
+.featured-project {
+  background-image: url('../images/featured-projects/featured-project_abbey.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  @include maintain-ratio(16 9);
+  position: relative;
+
+  &__details {
+    max-width: 70rem;
+    bottom: 10rem;
+    position: absolute;
+  }
+
+  &__client {
+    @include fontsize-s;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    @include fontsize-xl;
+    font-family: 'Adelle-Light', Helvetica, Arial, sans-serif;
+  }
+
+}
+
+
+
+
+
+// ## Index: Introduction
+
+.home-intro {
+  max-width: 110rem;
+  margin: 20vh auto;
+  @include fontsize-l;
+  font-family: 'Adelle-Light', Helvetica, Arial, sans-serif;
+}
+
+
+
+
+
+// ## Index: Introduction
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  &__project {
+    margin: .5rem;
+    height: calc(100vw/3.25);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+    &:nth-child(1), &:nth-child(4), &:nth-child(5), &:nth-child(8)  {
+      flex: 0 1 unquote("calc(66.6% - 1rem)");
+      background-image: url('../images/project-grid/project-grid_think.jpg');
+    }
+
+    &:nth-child(2), &:nth-child(3), &:nth-child(6), &:nth-child(7) {
+      flex: 0 1 unquote("calc(33.3% - 1rem)");
+      background-image: url('../images/project-grid/project-grid_think.jpg');
+    }
+
+    &:nth-child(1) {
+      background-image: url('../images/project-grid/project-grid_think.jpg');
+    }
+
+    &:nth-child(2) {
+      background-image: url('../images/project-grid/project-grid_dmm.gif');
+    }
+    &:nth-child(4) {
+      background-image: url('../images/project-grid/project-grid_2016.jpg');
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,90 @@
-@mixin fontsize-small {
+//Font Scale Mixins
+@mixin fontsize-s {
   font-size: 1.6rem;
   line-height: 2.5rem;
+}
+
+@mixin fontsize-l {
+  font-size: 3.6rem;
+  line-height: 6rem;
+}
+
+@mixin fontsize-xl {
+  font-size: 5.6rem;
+  line-height: 6.8rem;
+}
+
+
+
+
+
+// Maintain ratio mixin. Great for responsive grids, or videos.
+// https://gist.github.com/brianmcallister/2932463
+// 
+// $ratio - Ratio the element needs to maintain.
+// 
+// Examples
+// 
+//   // A 16:9 ratio would look like this:
+//   .element {
+//     @include maintain-ratio(16 9);
+//   }
+@mixin maintain-ratio($ratio: 1 1) {
+  @if length($ratio) < 2 or length($ratio) > 2 {
+    @warn "$ratio must be a list with two values.";
+  }
+  $width: 100%;
+  $height: percentage(nth($ratio, 2) / nth($ratio, 1));
+  width: $width;
+  height: 0;
+  padding-bottom: $height;
+}
+
+
+
+
+
+// =============================================================================
+// String Replace (For the following Font Face mixin)
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_")
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype"
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
 }
