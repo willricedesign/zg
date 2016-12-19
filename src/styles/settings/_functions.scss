@@ -10,6 +10,11 @@
 /// @param {String} $breakpoint - Breakpoint
 /// @return {Number} Breakpoint value
 
-@function get-breakpoint($orientation, $breakpoint) {
-  @return map-get(map-get($breakpoints, $orientation), $breakpoint);
-}
+//@function get-breakpoint($orientation, $breakpoint) {
+//  @return map-get(map-get($breakpoints, $orientation), $breakpoint);
+//
+
+
+//@function font-size($font-size) {
+//  @return map-get($font-scale, $font-size);
+//}

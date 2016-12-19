@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="23px" viewBox="0 0 16 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>MapPin</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Footer" transform="translate(-1175.000000, -276.000000)" fill="#FFFFFF">
+            <g id="ContactDetails" transform="translate(955.000000, 66.000000)">
+                <g id="Location" transform="translate(220.000000, 107.000000)">
+                    <g id="GoogleMaps" transform="translate(0.000000, 99.000000)">
+                        <path d="M8.0556542,26.543362 C8.0556542,26.543362 16.1469847,18.2685751 15.9979666,11.7842331 C15.8992195,7.4873726 12.4167167,4 7.99902104,4 C3.58132538,4 -0.0190001945,7.4852039 7.54533998e-05,11.7842331 C0.0288477024,18.2680718 8.0556542,26.543362 8.0556542,26.543362 Z M8,16 C10.209139,16 12,14.209139 12,12 C12,9.790861 10.209139,8 8,8 C5.790861,8 4,9.790861 4,12 C4,14.209139 5.790861,16 8,16 Z" id="MapPin"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
