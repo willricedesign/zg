@@ -151,12 +151,50 @@ body {
 
   // Link with map icon
   &__contactlist-link--mapicon {
-    background-image: url('../images/icon_map-pin.svg');
+    background-image: url('../images/icons/icon_map-pin.svg');
     background-repeat: no-repeat;
     background-position: 0 .02rem;
     background-size: 1.3rem;
     padding: 0 0 0 2rem;     
   }
+}
+
+
+
+
+
+// ##Floating Bull
+
+@keyframes jiggle {
+  0% {
+    -webkit-transform: rotate(0); }
+
+  20% {
+    -webkit-transform: rotate(12deg); }
+
+  40% {
+    -webkit-transform: rotate(-16deg); }
+
+  60% {
+    -webkit-transform: rotate(15deg); }
+
+  80% {
+    -webkit-transform: rotate(-8deg); }
+
+  100% {
+    -webkit-transform: rotate(0); } 
+}
+
+.thebullcanvas {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 200;
+  animation-name: jiggle;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  pointer-events: none;
 }
 
 
@@ -174,6 +212,10 @@ body {
   @include maintain-ratio(16 9);
   position: relative;
 
+  &__linkwrapper {
+    color: inherit;
+  }
+
   &__details {
     max-width: 70rem;
     bottom: 10rem;
@@ -188,9 +230,24 @@ body {
   &__title {
     @include fontsize-xl;
     font-family: 'Adelle-Light', Helvetica, Arial, sans-serif;
+    margin-bottom: 3rem;
   }
 
-}
+  &__cta {
+    color: inherit;
+    @include fontsize-s;
+
+    &:after {
+       content: url('../images/icons/arrow-right.svg');
+       position: absolute;
+       margin-left: 1rem;
+       margin-top: 0.1rem;
+       transition: $cubic-bezier;
+    }
+  }
+    
+  //Hover on entire text module triggers arrow movement  
+  &__linkwrapper :hover { .featured-project__cta:after { margin-left: 1.6rem; } } }
 
 
 
@@ -256,6 +313,7 @@ body {
     padding: 3rem;
     position: relative;
     opacity: 0;
+    transition: .4s all ease-in-out;
 
     &:hover {
         opacity: 1;
@@ -271,6 +329,7 @@ body {
     @include fontsize-xl;
     font-family: 'Adelle-Light', Helvetica, Arial, sans-serif;
     max-width: 50rem;
+
   }
 
   &__taglist {

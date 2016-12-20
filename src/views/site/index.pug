@@ -8,9 +8,11 @@ block variables
 block content
   .featured-project
     .container
-      .featured-project__details
-        h2.featured-project__client Abbey Theatre
-        h3.featured-project__title Rebranding Ireland's National Theatre
+      a.featured-project__linkwrapper(href='#')
+        .featured-project__details
+          h2.featured-project__client Abbey Theatre
+          h3.featured-project__title Rebranding Ireland's National Theatre
+          .featured-project__cta View Project
 
   div.container
     p.home-intro Zero-G is a brand strategy and design agency based in Dublin, Ireland. We partner with organisations and enterprises from around the world to help them change, connect, innovate and grow. 
@@ -34,7 +36,7 @@ block content
     .project-preview
     .project-preview    
 
-
   +sample("I'm a sample mixin with class modifier!")(class="c-sample--modifier")
+
 
 
