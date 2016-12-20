@@ -113,27 +113,23 @@ body {
   &__arrow {
     float: left;
     width: 2.2rem;
+    &:hover { margin-top: -.2rem; }
 
-    &:hover {
-        margin-top: -.2rem;
-    }
   }
 
   &__contactlist {
     @include span(4 of 12);
     @include omega;
     @include fontsize-s;
+    list-style-type: none;
   }
 
   &__contactlist-item {
     @include span(2 of 4);
     margin-bottom: 4rem;
-    li {
-        margin-bottom: .5rem;
-    }
-    &:nth-child(even) {
-        @include omega;
-    }
+    li { margin-bottom: .5rem; }
+    ul { list-style-type: none; }
+    &:nth-child(even) { @include omega; }
   }
 
   &__contactlist-title {
@@ -166,23 +162,12 @@ body {
 // ##Floating Bull
 
 @keyframes jiggle {
-  0% {
-    -webkit-transform: rotate(0); }
-
-  20% {
-    -webkit-transform: rotate(12deg); }
-
-  40% {
-    -webkit-transform: rotate(-16deg); }
-
-  60% {
-    -webkit-transform: rotate(15deg); }
-
-  80% {
-    -webkit-transform: rotate(-8deg); }
-
-  100% {
-    -webkit-transform: rotate(0); } 
+  0%   { transform: rotate(0); }
+  20%  { transform: rotate(12deg); }
+  40%  { transform: rotate(-16deg); }
+  60%  { transform: rotate(15deg); }
+  80%  { transform: rotate(-8deg); }
+  100% { transform: rotate(0); } 
 }
 
 .thebullcanvas {
@@ -247,7 +232,10 @@ body {
   }
     
   //Hover on entire text module triggers arrow movement  
-  &__linkwrapper :hover { .featured-project__cta:after { margin-left: 1.6rem; } } }
+  &__linkwrapper :hover { 
+    .featured-project__cta:after { margin-left: 1.6rem; } 
+  } 
+}
 
 
 
@@ -260,6 +248,7 @@ body {
   margin: 24rem auto;
   @include fontsize-l;
   font-family: 'Adelle-Light', Helvetica, Arial, sans-serif;
+  color: $color-mid;
 }
 
 
@@ -331,19 +320,6 @@ body {
     max-width: 50rem;
 
   }
-
-  &__taglist {
-    @include fontsize-scaps;
-    position: absolute;
-    list-style-type: none;
-    bottom: 3rem;
-    opacity: .7;
-  }
-
-  &__tag {
-    display: inline-block;
-  }
-
 
 }
 

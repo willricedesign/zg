@@ -1,0 +1,17 @@
+//-
+  Sample
+  Mixin description
+
+  Param: {copy} String
+  Argument: {attributes.class} String
+
+mixin sample(copy)
+  p(class=["c-sample"] class!=attributes.class)= copy
+
+
+mixin project-preview(client, title)
+  .project-preview
+    a.project-link(href='#')
+      .project-preview__details
+        h2.project-preview__client=client
+        h3.project-preview__title=title
