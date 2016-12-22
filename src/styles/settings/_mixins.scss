@@ -1,4 +1,6 @@
-//Font Scale Mixins
+// =============================================================================
+// Font Scale
+// =============================================================================
 @mixin fontsize-scaps {
   font-family: 'Adelle-Bold', Helvetica, Arial, sans-serif;
   font-size: 1.2rem;
@@ -6,19 +8,83 @@
   letter-spacing: .3rem;
 }
 
+
+@mixin fontsize-xs {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+}
+
 @mixin fontsize-s {
   font-size: 1.7rem;
   line-height: 2.5rem;
 }
 
+@mixin fontsize-m {
+  font-family: 'Adelle-Light', Helvetica, Arial, sans-serif;
+  font-size: 2.4rem;
+  line-height: 4.4rem;
+}
+
 @mixin fontsize-l {
-  font-size: 3.6rem;
-  line-height: 6rem;
+  font-family: 'Adelle-Light', Helvetica, Arial, sans-serif;
+  font-size: 3.2rem;
+  line-height: 5.6rem;
 }
 
 @mixin fontsize-xl {
-  font-size: 5.6rem;
-  line-height: 6.8rem;
+  font-family: 'Adelle-Light', Helvetica, Arial, sans-serif;
+  font-size: 4.8rem;
+  line-height: 5.6rem;
+}
+
+
+// =============================================================================
+// Paragraph Mixins
+// =============================================================================
+
+@mixin paragraph-l {
+  max-width: 96rem;
+  margin: $vert-l auto;
+  @include fontsize-l;
+  color: $color-dark;
+}
+
+@mixin paragraph-m {
+  max-width: 94rem;
+  margin: $vert-m auto;
+  @include fontsize-m;
+  color: $color-dark;
+}
+
+
+
+
+
+// =============================================================================
+// Link Animation (Left to Right)
+// =============================================================================
+@mixin link-animate($link-color) {
+  position: relative;
+  transition: color 400ms ease-in-out;
+
+  &:after {
+    display: block;
+    position: absolute;
+    left: 0rem;
+    bottom: -.4rem;
+    width: 0;
+    height: .1rem;
+    background-color: $link-color;
+    content: "";
+    transition: 400ms cubic-bezier(0, -0.5, 0.25, 1.55);
+    opacity: 0;
+  }
+
+  &:hover:after {
+    left: 0;
+    width: 100%;
+    opacity: 1;
+  }
 }
 
 

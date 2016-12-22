@@ -1,17 +1,17 @@
-//-
-  Sample
-  Mixin description
+//- Index Page: Project Preview
 
-  Param: {copy} String
-  Argument: {attributes.class} String
-
-mixin sample(copy)
-  p(class=["c-sample"] class!=attributes.class)= copy
-
-
-mixin project-preview(client, title)
+mixin project-preview(client, title, href)
   .project-preview
-    a.project-link(href='#')
+    a.project-preview__link(href=href)
       .project-preview__details
         h2.project-preview__client=client
         h3.project-preview__title=title
+
+
+//- Project Page: Related Projects
+
+mixin related-project(client, href, imagelink)
+  .related-project
+    a.related-project__link(href=href)
+      img.related-project__image(src='/images/related-projects/related-project_abbey.jpg')
+      h2.related-project__client=client

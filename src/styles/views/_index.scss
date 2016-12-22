@@ -1,0 +1,202 @@
+
+
+//---------------------------------------------------
+// ##Index : Featured Projects
+//---------------------------------------------------
+
+.featured-project {
+  background-image: url('../images/featured-projects/featured-project_abbey.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  @include maintain-ratio(16 9);
+  position: relative;
+
+  &__linkwrapper {
+    color: inherit;
+  }
+
+  &__details {
+    max-width: 60rem;
+    bottom: 10rem;
+    position: absolute;
+  }
+
+  &__client {
+    @include fontsize-s;
+    margin-bottom: $vert-xs;
+  }
+
+  &__title {
+    @include fontsize-xl;
+    margin-bottom: $vert-xs;
+  }
+
+  &__cta {
+    color: inherit;
+    @include fontsize-s;
+
+    &:after {
+       content: url('../images/icons/arrow-right.svg');
+       position: absolute;
+       margin-left: 1rem;
+       margin-top: 0.1rem;
+       transition: 150ms ease-in-out;
+    }
+  }
+    
+  //Hover on entire text module triggers arrow movement  
+  &__linkwrapper :hover { 
+    .featured-project__cta:after { 
+      margin-left: 1.6rem; 
+      transition: 200ms ease-in-out;
+    } 
+  } 
+}
+
+
+
+
+//---------------------------------------------------
+// ## Index: Introduction
+//---------------------------------------------------
+
+.home-intro {
+  @include paragraph-l;
+}
+
+
+
+
+//---------------------------------------------------
+// ## Index: Project Grid
+//---------------------------------------------------
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.project-preview {
+  margin: .5rem;
+  height: calc(100vw/3);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../images/project-grid/project-grid_think.jpg');
+  
+  // Set alternate widths for the grid units
+
+  &:nth-child(1), &:nth-child(4), &:nth-child(5), &:nth-child(8)  {
+    flex: 0 1 unquote("calc(66.6% - 1rem)");
+  }
+
+  &:nth-child(2), &:nth-child(3), &:nth-child(6), &:nth-child(7) {
+    flex: 0 1 unquote("calc(33.3% - 1rem)");
+  }
+    
+
+  // Set background images for the grid units — this should probably be moved to use data-attr.
+
+  &:nth-child(1) {
+    background-image: url('../images/project-grid/project-grid_think.jpg');
+  }
+
+  &:nth-child(2) {
+    background-image: url('../images/project-grid/project-grid_dmm.gif');
+  }
+  &:nth-child(4) {
+    background-image: url('../images/project-grid/project-grid_2016.jpg');
+  }
+
+  &:nth-child(5) {
+    background-image: url('../images/project-grid/project-grid_ls.jpg');
+  }
+    
+
+  // Project Details Core Styles
+
+  &__details {
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 100%;
+    color: white;
+    padding: 3rem 3rem 3rem 3rem;
+    position: relative;
+  }
+
+  &__client {
+    @include fontsize-s;
+    margin-bottom: $vert-s;
+  }
+
+  &__title {
+    @include fontsize-xl;
+    max-width: 50rem;
+  }
+
+
+  // Project Details Hover effects
+
+  &__details {
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+
+        &:hover {
+        opacity: 1;
+        transition: opacity 350ms ease-in-out;
+
+        .project-preview__client {
+          opacity: 1;
+          transition: opacity 400ms ease-in-out 150ms;
+        }
+
+        .project-preview__title {
+          opacity: 1;
+          transform: translateY(0);
+          transition: opacity 400ms ease-in-out 200ms,
+                      transform 400ms ease-in-out 200ms;
+        }
+
+    }
+  }
+
+  &__client {
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+  }
+
+  &__title {
+    opacity: 0;
+    transform: translateY(.5rem);
+    transition: opacity 300ms ease-in-out,
+                transform 300ms ease-in-out 300ms;
+  }
+
+}
+
+
+
+
+//---------------------------------------------------
+// ## Index: Project List Link
+//---------------------------------------------------
+
+.home-projectlist-link {
+    @include fontsize-s;
+    margin: $vert-m auto;
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+    text-align: center;
+    width: 250px;
+    padding: 24px 0;
+    background-color: white;
+    border: 1px solid $color-mid;
+    color: $color-mid;
+    display: inherit;
+}
+
+
+
+

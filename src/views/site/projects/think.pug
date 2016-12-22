@@ -1,0 +1,40 @@
+extends ../../extends/layout.pug
+include ../../mixins/mixins
+
+block variables
+  - var title = "Zero-G | Brand Strategy and Design";
+  - var description = "Zero-G is a brand strategy and design agency based in Dublin, Ireland";
+
+block content
+  .project-intro.container
+    h1.project__client Think Healthcare
+    h2.project__title Changing healthcare across America
+    ul.project__taglist 
+      li.project__tag Brand Design,
+      li.project__tag Strategy,
+      li.project__tag User Experience,
+      li.project__tag User Interface
+
+  img.project__mainimage(src='/images/projects/think/mainimage_think.jpg')
+
+  .container
+    p.project__text Think is a joint venture between healthcare entrepreneur Fergus Hoban and Blue Cross Blue Shield. Its ambition is to revolutionise healthcare in the United States with a disruptive business model that aims to reduce US healthcare spending whilst improving outcomes for patients. Central to this vision is the development of a range of primary care centres for the over 55s and those with chronic diseases. Zero-G were engaged to develop the brand identity as part of the development of a $45 million pilot facility in Omaha, Nebraska.
+  
+    img.project__image(src='/images/projects/think/mainimage_think.jpg')
+    img.project__image(src='/images/projects/think/mainimage_think.jpg')
+
+    p.project__text Think is a joint venture between healthcare entrepreneur Fergus Hoban and Blue Cross Blue Shield. Its ambition is to revolutionise healthcare in the United States with a disruptive business model that aims to reduce US healthcare spending whilst improving outcomes for patients. Central to this vision is the development of a range of primary care centres for the over 55s and those with chronic diseases. Zero-G were engaged to develop the brand identity as part of the development of a $45 million pilot facility in Omaha, Nebraska.
+
+    img.project__image(src='/images/projects/think/mainimage_think.jpg')
+    img.project__image(src='/images/projects/think/mainimage_think.jpg')
+
+    p.project__cta We're always happy to chat about new projects &mdash; why not #[a(href = '/project-list') get in touch?]
+
+  section.related-projects
+    .container
+      h3.related-projects__header Related Projects
+      a.related-projects__view-all-link(href = '/project-list') View all projects
+      .related-projects__flexwrapper
+        +related-project('Abbey Theatre', '/projects/abbey.html')
+        +related-project('Abbey Theatre', '/projects/abbey.html')
+        +related-project('Abbey Theatre', '/projects/abbey.html')

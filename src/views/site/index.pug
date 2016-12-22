@@ -15,14 +15,15 @@ block content
           .featured-project__cta View Project
 
   .container
-    p.home-intro Zero-G is a brand strategy and design agency based in Dublin, Ireland. We partner with organisations and enterprises from around the world to help them change, connect, innovate and grow. 
+    h1.home-intro Zero-G is a brand strategy and design agency based in Dublin, Ireland. We partner with organisations and enterprises from around the world to help them change, connect, innovate and grow. 
 
   section.container.project-grid
-    +project-preview('Think Healthcare', 'Transforming healthcare in America')
-    +project-preview('Dublin Makes Me', 'South by Southwest by Dublin')
-    +project-preview('Think Healthcare', 'Transforming healthcare in America')
+    +project-preview('Think Healthcare', 'Transforming healthcare in America', '/projects/think.html')
+    +project-preview('Dublin Makes Me', 'South by Southwest by Dublin', '#')
+    +project-preview('Think Healthcare', 'Transforming healthcare in America', '#')
     +project-preview('Ireland 2016', 'Remember. Reflect. Reimagine')
-    +project-preview('Think Healthcare', 'Transforming healthcare in America')
-    +project-preview('Dublin Makes Me', 'South by Southwest by Dublin')
+    +project-preview('Linesight', 'Building progress across the world', '#')
+    +project-preview('Dublin Makes Me', 'South by Southwest by Dublin', '#')
   
-  a.projectlist-link(href='#') View all projects
+  .container
+    a.home-projectlist-link(href='#') View all projects

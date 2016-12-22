@@ -1,0 +1,136 @@
+
+//---------------------------------------------------
+// ##Project Intro
+// --------------------------------------------------
+
+.project-intro {
+  margin-top: $vert-xl;
+    
+}
+
+.project__client {
+  @include fontsize-xl;
+  color: $color-dark;
+}
+
+.project__title {
+  @include fontsize-xl;
+  color: $color-mid;
+  margin-bottom: $vert-xs;
+}
+
+.project__taglist {
+    list-style-type: none;
+}
+
+.project__tag {
+  display: inline-block;
+  @include fontsize-s;
+  color: $color-mid;
+  margin-left: .2rem;
+  margin-bottom: $vert-s;
+}
+
+.project__mainimage {
+  width: 100%;
+}
+
+
+//---------------------------------------------------
+// ##Project Core
+// --------------------------------------------------
+
+.project__text {
+  @include paragraph-m;
+}
+
+.project__mainimage {
+  margin-bottom: $vert-xs;
+}
+
+.project__image {
+  margin: $vert-xs auto; 
+}
+
+.project__cta {
+  margin: $vert-m auto;
+  @include fontsize-l;
+  color: $color-dark;
+  text-align: center;
+  a { 
+    @include link-animate($color-highlight);
+    color: $color-highlight;
+  }
+}
+
+
+//---------------------------------------------------
+// ##Related Projects
+// --------------------------------------------------
+
+
+.related-projects {
+  width: 100%;
+  position: relative;
+  margin-top: $vert-m;
+  padding: $vert-s 0;
+  border-top: .1rem solid $color-extralight;
+    
+  //Title
+  &__header {
+    @include fontsize-m;
+    color: $color-dark;
+    margin-bottom: $vert-xs;
+    float: left;
+  }
+  
+  //View all projects link
+  &__view-all-link {
+    float: right;
+    @include fontsize-s;
+    color: $color-light;
+    margin-top: .3rem;
+    @include link-animate($color-dark);
+    &:hover { color: $color-dark; }
+  }
+  
+  //Flexbox wrapper for related projects
+  &__flexwrapper {
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  
+}
+
+.related-project {
+  flex: 0 1 unquote("calc(33.3% - 1rem)");
+  display: inline-block;
+  float: left;
+  color: $color-light;
+  transition: 300ms ease-in-out;
+  margin: 0 .5rem;
+  &__link { color: inherit; }
+
+  &__client {
+    @include fontsize-s;
+    margin-top: 2rem;
+      
+  }
+
+  &:hover {
+    transform: translateY(-.5rem);
+    transition: 400ms ease-in-out;
+    color: $color-dark;
+  }
+}
+
+
+
+
+
+
+
+
+

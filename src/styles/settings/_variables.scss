@@ -18,7 +18,18 @@ $breakpoints: (
 // Colors
 
 $color-dark: #15171f;
-$color-mid: #525252;
+$color-mid: #9B9B9B;
+$color-light: #848484;
+$color-extralight: #e2e2e2;
+$color-highlight: #e40446;
 
 // Transitions
-$cubic-bezier: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+//$trans-ease: 100ms ease-in-out;
+
+// Vertical Rhythym
+$vert-xxs: 1rem;
+$vert-xs: 3rem;
+$vert-s: 8rem;
+$vert-m: 12rem;
+$vert-l: 20rem;
+$vert-xl: 36rem;

@@ -6,17 +6,11 @@
 @import "settings/mixins";
 
 
-
-
-
 //---------------------------------------------------
 // ##Core
 // --------------------------------------------------
 @import "core/reset";
 @import "core/base";
-
-
-
 
 
 //---------------------------------------------------
@@ -25,319 +19,58 @@
 @import "../../bower_components/susy/sass/_susy.scss";
 
 
-
+//---------------------------------------------------
+// ##General Styles : Fonts, Grid, Nav, Footer, etc
+// --------------------------------------------------
+@import "views/general";
 
 
 //---------------------------------------------------
-// ##Setup
+// ##Index
 // --------------------------------------------------
-$susy: ( columns: 12, gutters: .25, container: 180rem, );
-
-
-
+@import "views/index";
 
 
 //---------------------------------------------------
-// ##Fonts
+// ##Project Page
 // --------------------------------------------------
 
-@include font-face(Adelle-Bold, '../fonts/AdelleSans-Bold');
-@include font-face(Adelle-Regular, '../fonts/AdelleSans-Regular');
-@include font-face(Adelle-Light, '../fonts/AdelleSans-Light');
-
-
+@import "views/project";
 
 
 //---------------------------------------------------
-// ##Style
+// ##Project List Page
 // --------------------------------------------------
 
-// ##General
-
-body {
-  font-family: 'Adelle-Regular', Helvetica, Arial, sans-serif;
-}
-
-.container {
-  @include container;
-  padding: 0 6rem;
-}
-
-
-
-
-
-// ##Header
-
-.primarynav {
-  padding-top: 4rem;
-  position: absolute;
-  width: 100%;
-  color: white;
-  z-index: 100;
-  
-  &__title {
-    @include fontsize-s;
-    float: left;
-  }
-
-  &__linklist {
-    @include fontsize-s;
-    float: right;
-    list-style-type: none;
-    padding: 0;
-  }
-
-  &__linklist-item {
-    display: inline-block;
-    margin-left: 2.4rem;
-    padding: 0;
-  }
-
-  &__link {
-    color: inherit;
-  }
-}
-
-
-
-
-
-// ##Footer
-
-.footer {
-  background-color: $color-dark;
-  height: 46rem;
-  padding-top: 6rem;
-
-  &__arrow {
-    float: left;
-    width: 2.2rem;
-    &:hover { margin-top: -.2rem; }
-
-  }
-
-  &__contactlist {
-    @include span(4 of 12);
-    @include omega;
-    @include fontsize-s;
-    list-style-type: none;
-  }
-
-  &__contactlist-item {
-    @include span(2 of 4);
-    margin-bottom: 4rem;
-    li { margin-bottom: .5rem; }
-    ul { list-style-type: none; }
-    &:nth-child(even) { @include omega; }
-  }
-
-  &__contactlist-title {
-    color: grey;
-    font-family: 'Adelle-Bold', Helvetica, Arial, sans-serif;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: .4rem;
-    margin-bottom: 1rem;
-  }
-
-  &__contactlist-link {
-    color: white;
-  }
-
-  // Link with map icon
-  &__contactlist-link--mapicon {
-    background-image: url('../images/icons/icon_map-pin.svg');
-    background-repeat: no-repeat;
-    background-position: 0 .02rem;
-    background-size: 1.3rem;
-    padding: 0 0 0 2rem;     
-  }
-}
-
-
-
-
-
-// ##Floating Bull
-
-@keyframes jiggle {
-  0%   { transform: rotate(0); }
-  20%  { transform: rotate(12deg); }
-  40%  { transform: rotate(-16deg); }
-  60%  { transform: rotate(15deg); }
-  80%  { transform: rotate(-8deg); }
-  100% { transform: rotate(0); } 
-}
-
-.thebullcanvas {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 200;
-  animation-name: jiggle;
-  animation-duration: 60s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  pointer-events: none;
-}
-
-
-
-
-
-// ##Index : Featured Projects
-
-.featured-project {
-  background-image: url('../images/featured-projects/featured-project_abbey.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  @include maintain-ratio(16 9);
-  position: relative;
-
-  &__linkwrapper {
-    color: inherit;
-  }
-
-  &__details {
-    max-width: 70rem;
-    bottom: 10rem;
-    position: absolute;
-  }
-
-  &__client {
-    @include fontsize-s;
-    margin-bottom: 3rem;
-  }
+.projectlist {
+  margin-top: $vert-m;
 
   &__title {
     @include fontsize-xl;
-    font-family: 'Adelle-Light', Helvetica, Arial, sans-serif;
-    margin-bottom: 3rem;
-  }
-
-  &__cta {
-    color: inherit;
-    @include fontsize-s;
-
-    &:after {
-       content: url('../images/icons/arrow-right.svg');
-       position: absolute;
-       margin-left: 1rem;
-       margin-top: 0.1rem;
-       transition: $cubic-bezier;
+    color: $color-dark;
+    margin-bottom: $vert-xs;
+  };
+    
+  //We're using the style from the index project preview section, and overriding where necessary
+  .project-preview {
+    flex: 0 1 unquote("calc(33.3% - 1rem)") !important;
+    height: calc(100vw/6) !important;
+    
+    
+    &__client {
+      @include fontsize-m;
+      margin-bottom: $vert-xxs;
+      line-height: 3.2rem !important;
     }
-  }
-    
-  //Hover on entire text module triggers arrow movement  
-  &__linkwrapper :hover { 
-    .featured-project__cta:after { margin-left: 1.6rem; } 
-  } 
-}
 
+    &__title {
+      @include fontsize-m;
+      max-width: 50rem;
+      opacity: 0.5 !important;
+      line-height: 3.2rem !important;
 
-
-
-
-// ## Index: Introduction
-
-.home-intro {
-  max-width: 110rem;
-  margin: 24rem auto;
-  @include fontsize-l;
-  font-family: 'Adelle-Light', Helvetica, Arial, sans-serif;
-  color: $color-mid;
-}
-
-
-
-
-
-// ## Index: Project Grid
-
-.project-grid {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin-bottom: 10rem;
-}
-
-.project-preview {
-  margin: .5rem;
-  height: calc(100vw/3);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  
-  // Alternate widths of the units  
-  &:nth-child(1), &:nth-child(4), &:nth-child(5), &:nth-child(8)  {
-    flex: 0 1 unquote("calc(66.6% - 1rem)");
-    background-image: url('../images/project-grid/project-grid_think.jpg');
-  }
-
-  &:nth-child(2), &:nth-child(3), &:nth-child(6), &:nth-child(7) {
-    flex: 0 1 unquote("calc(33.3% - 1rem)");
-    background-image: url('../images/project-grid/project-grid_think.jpg');
-  }
-    
-  // Set background images  
-  &:nth-child(1) {
-    background-image: url('../images/project-grid/project-grid_think.jpg');
-  }
-
-  &:nth-child(2) {
-    background-image: url('../images/project-grid/project-grid_dmm.gif');
-  }
-  &:nth-child(4) {
-    background-image: url('../images/project-grid/project-grid_2016.jpg');
-  }
-    
-  // Project Details  
-  &__details {
-    background-color: rgba(0, 0, 0, 0.9);
-    height: 100%;
-    color: white;
-    padding: 3rem;
-    position: relative;
-    opacity: 0;
-    transition: .4s all ease-in-out;
-
-    &:hover {
-        opacity: 1;
     }
   }
 
-  &__client {
-    @include fontsize-s;
-    margin-bottom: 6rem;
-  }
-
-  &__title {
-    @include fontsize-xl;
-    font-family: 'Adelle-Light', Helvetica, Arial, sans-serif;
-    max-width: 50rem;
-
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+};
 

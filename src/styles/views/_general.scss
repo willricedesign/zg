@@ -1,0 +1,159 @@
+//---------------------------------------------------
+// ##Grid Setup
+// --------------------------------------------------
+$susy: ( columns: 12, gutters: .25, container: 180rem, );
+
+
+//---------------------------------------------------
+// ##Fonts
+// --------------------------------------------------
+
+@include font-face(Adelle-Bold, '../fonts/AdelleSans-Bold');
+@include font-face(Adelle-Regular, '../fonts/AdelleSans-Regular');
+@include font-face(Adelle-Light, '../fonts/AdelleSans-Light');
+
+
+//---------------------------------------------------
+// ##Universal Bits
+//---------------------------------------------------
+
+body {
+  font-family: 'Adelle-Regular', Helvetica, Arial, sans-serif;
+  //-webkit-transform: translateY(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+.container {
+  @include container;
+  padding: 0 6rem;
+}
+
+
+
+
+
+//---------------------------------------------------
+// ##Header
+//---------------------------------------------------
+
+.primarynav {
+  padding: 4rem 0 3rem 0;
+  position: fixed;
+  width: 100%;
+  color: $color-mid;
+  z-index: 100;
+  top: 0;
+  //background-color: white;
+  
+  &__title {
+    @include fontsize-s;
+    float: left;
+  }
+
+  &__linklist {
+    @include fontsize-s;
+    float: right;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  &__linklist-item {
+    display: inline-block;
+    margin-left: 2.4rem;
+    padding: 0;
+    &:hover { color: $color-dark; }
+  }
+
+  &__link {
+    color: inherit;
+    @include link-animate($color-dark);
+  }
+}
+
+
+
+//---------------------------------------------------
+// ##Footer
+//---------------------------------------------------
+
+.footer {
+  background-color: $color-dark;
+  padding: $vert-s 0;
+  position: relative;
+
+  &__arrow {
+    float: left;
+    width: 2.2rem;
+    &:hover { margin-top: -.2rem; }
+
+  }
+
+  &__contactlist {
+    @include span(4 of 12);
+    @include omega;
+    @include fontsize-s;
+    list-style-type: none;
+  }
+
+  &__contactlist-item {
+    @include span(2 of 4);
+    margin-bottom: $vert-xs;
+    li { margin-bottom: 1rem; }
+    ul { list-style-type: none; }
+    &:nth-child(even) { @include omega; }
+  }
+
+  &__contactlist-title {
+    color: grey;
+    font-family: 'Adelle-Bold', Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: .4rem;
+    margin-bottom: 1rem;
+  }
+
+  &__contactlist-link {
+    color: white;
+    @include link-animate(yellow);
+  }
+
+  // Link with map icon
+  &__contactlist-link--mapicon {
+    background-image: url('../images/icons/icon_map-pin.svg');
+    background-repeat: no-repeat;
+    background-position: 0 .02rem;
+    background-size: 1.3rem;
+    padding: 0 0 0 2rem;     
+  }
+}
+
+
+
+
+
+//---------------------------------------------------
+// ##Floating Bull
+//---------------------------------------------------
+
+@keyframes jiggle {
+  0%   { transform: rotate(0); }
+  20%  { transform: rotate(12deg); }
+  40%  { transform: rotate(-16deg); }
+  60%  { transform: rotate(15deg); }
+  80%  { transform: rotate(-8deg); }
+  100% { transform: rotate(0); } 
+}
+
+.thebullcanvas {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 200;
+  animation-name: jiggle;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  pointer-events: none;
+}
