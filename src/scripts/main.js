@@ -1,6 +1,11 @@
 //= include components/sample.js
 
 
+//---------------------------------------------------
+// ##Floating bull
+//---------------------------------------------------
+
+
 // Random Number with range
 function random(min, max) {
   var num = Math.floor(Math.random() * (max - min)) + min;
@@ -34,16 +39,26 @@ function drawBull() {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawBull();
-
   if (x + dx > canvas.width - bullRadius || x + dx < bullRadius) {
-    dx = -dx;
+      dx = -dx;
   }
   if (y + dy > canvas.height - bullRadius || y + dy < bullRadius) {
-    dy = -dy;
+      dy = -dy;
   }
-
   x += dx;
   y += dy;
 }
 
 setInterval(draw, 10);
+
+
+//---------------------------------------------------
+// ##Smooth scroll to top
+//---------------------------------------------------
+
+$(function() {
+  $('#footer__arrow').click(function() {
+      $('html,body').animate({ scrollTop: 0 }, 'slow');
+      return false;
+  });
+});

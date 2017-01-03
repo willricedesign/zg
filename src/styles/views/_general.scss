@@ -1,10 +1,4 @@
 //---------------------------------------------------
-// ##Grid Setup
-// --------------------------------------------------
-$susy: ( columns: 12, gutters: .25, container: 180rem, );
-
-
-//---------------------------------------------------
 // ##Fonts
 // --------------------------------------------------
 
@@ -22,16 +16,21 @@ body {
   //-webkit-transform: translateY(0);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
 
 .container {
-  @include container;
+  max-width: 180rem;
   padding: 0 6rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+
+  //clearfix
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
 }
-
-
-
 
 
 //---------------------------------------------------
@@ -85,24 +84,32 @@ body {
 
   &__arrow {
     float: left;
-    width: 2.2rem;
-    &:hover { margin-top: -.2rem; }
+    width: 4.4rem;
+    height: 4.4rem;
+    cursor: pointer;
+    background-image: url('../images/icons/arrow.svg');
+    background-repeat: no-repeat;
+    background-size: 2.2rem;
+    background-position: 50%;
+    transition: 150ms ease-in-out;
+    &:hover { margin-top: -.4rem; transition: 250ms ease-in-out; }
 
   }
 
   &__contactlist {
-    @include span(4 of 12);
-    @include omega;
+    width: 30rem;
+    float: right;
     @include fontsize-s;
     list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   &__contactlist-item {
-    @include span(2 of 4);
+    flex: 0 1 unquote("calc(50% )");
     margin-bottom: $vert-xs;
     li { margin-bottom: 1rem; }
     ul { list-style-type: none; }
-    &:nth-child(even) { @include omega; }
   }
 
   &__contactlist-title {
